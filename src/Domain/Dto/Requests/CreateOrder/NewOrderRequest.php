@@ -33,7 +33,7 @@ class NewOrderRequest extends BaseRequest
         public ?array $hook_status = null,
         public ?string $hook_url = null,
         public ?string $channel = null,
-        public ?string $datetime = null,
+        public ?string $datetime = null, //ГГГГ-ММ-ДД ЧЧ:ММ:СС
         public ?int $affiliate = null,
         public ?int $point = null,
     ) {}
