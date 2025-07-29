@@ -26,11 +26,9 @@ abstract class BaseService
         $options['secret'] = env('FRONT_PAD_SECRET');
 
         if ($method !== 'GET') {
-            $body = json_encode($options, JSON_THROW_ON_ERROR);
-
+            $body = http_build_query($options);
             $request = $request
-                ->withHeader('Content-Type', 'application/json')
-                ->withHeader('Accept', 'application/json')
+                ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
                 ->withBody(Utils::streamFor($body));
         } elseif ($options) {
             $request = $request->withUri(
